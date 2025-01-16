@@ -1,3 +1,5 @@
+import libriBiblioteca
+
 
 ###################################################################### Dizionari #####################################################################################
 
@@ -83,7 +85,38 @@ def restituisciLibro(titolo):
             return ("Libro già disponibile")
 
 
-######################################################################## Fine funzioni ####################################################################################
+######################################################################## Fine funzioni Libro ##############################################################################
+
+
+
+######################################################################## Funzioni User #####################################################################################
+
+def aggiungiUtente(cognome):
+    if cognome in utentiBiblioteca:
+        return ("Utente già presente")
+    else:
+        utentiBiblioteca[cognome] = {"cognome": cognome, "libriPrestati": []}
+        return ("Utente aggiunto")
+def rimuoviUtente(cognome):
+    if cognome in utentiBiblioteca:
+        del utentiBiblioteca[cognome]
+        return ("Utente rimosso")
+    else:
+        return ("Utente non trovato")
+
+def cercaUtente(cognome):
+    if cognome in utentiBiblioteca:
+        libriPrestati = utentiBiblioteca[cognome]["libriPrestati"]
+        return ("\nUtente trovato!!\n\nLibri in prestito: " + str(libriPrestati))
+    else:
+        return ("Utente non trovato")
+
+
+
+######################################################################## Fine funzioni User ################################################################################
+
+
+
 
 
 #################################################################### console output and input UI ##########################################################################
